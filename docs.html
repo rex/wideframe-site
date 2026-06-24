@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wideframe — Documentation</title>
+<meta name="description" content="The complete guide to Wideframe: displays, framing, the live preview, quality, exporting, the library, and every Pro feature." />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  .docs-head { background: var(--wf-canvas); background-image: var(--wf-gradient-glow); color: #fff; }
+  .docs-head .dh { padding: 26px 0 40px; max-width: 720px; }
+  .docs-head h1 { font-family: var(--wf-font-display); font-size: 40px; font-weight: 800; letter-spacing: -.03em; margin-top: 20px; }
+  .docs-head p { font-size: 17px; color: var(--wf-on-canvas-muted); margin-top: 14px; line-height: 1.55; }
+  .doc-sec h2 { font-family: var(--wf-font-display); font-size: 28px; font-weight: 800; letter-spacing: -.02em; margin: 0 0 6px; }
+  .doc-sec > .lead { font-size: 16px; color: var(--wf-ink-muted); margin-bottom: 18px; }
+  .doc-sec + .doc-sec { margin-top: 52px; padding-top: 52px; border-top: 1px solid var(--wf-line); }
+  .pro-pill { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: #fff; background: var(--wf-gradient); padding: 3px 9px; border-radius: 999px; vertical-align: middle; margin-left: 10px; }
+  .kbd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; margin-top: 8px; }
+  .kbd-grid .kr { display: flex; align-items: center; gap: 12px; font-size: 14.5px; color: var(--wf-ink-muted); padding: 7px 0; border-bottom: 1px solid var(--wf-line); }
+  kbd { font-family: var(--wf-font-mono); font-size: 12px; background: var(--wf-surface-2); border: 1px solid var(--wf-line-strong);
+    border-bottom-width: 2px; border-radius: 6px; padding: 3px 8px; color: var(--wf-ink); flex: none; }
+  .steps { counter-reset: s; list-style: none; margin: 6px 0 16px !important; }
+  .steps li { counter-increment: s; position: relative; padding-left: 40px !important; margin-bottom: 14px !important; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: -1px; width: 26px; height: 26px;
+    border-radius: 50%; background: var(--wf-brand-tint); color: var(--wf-blue); font-weight: 700; font-size: 13px;
+    font-family: var(--wf-font-mono); display: grid; place-items: center; }
+</style>
+</head>
+<body>
+
+<div class="docs-head">
+  <div class="wrap">
+    <nav class="nav on-dark">
+      <a class="brand" href="index.html"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></a>
+      <span class="links"><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="docs.html" class="on">Docs</a><a href="changelog.html">Changelog</a><a href="support.html">Support</a></span>
+      <span class="right"><a class="btn grad" href="index.html#download"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download</a></span>
+    </nav>
+  </div>
+  <div class="wrap"><div class="dh">
+    <span class="eyebrow" style="color:#9FB4FF">Documentation</span>
+    <h1>Everything Wideframe can do.</h1>
+    <p>From your first wallpaper to multi-monitor spanning. Short, practical guides — skim the sidebar or read straight through.</p>
+  </div></div>
+</div>
+
+<div class="wrap">
+  <div class="docs-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="docs-side">
+      <div class="grp">
+        <h6>Get started</h6>
+        <a href="#install">Install &amp; first run</a>
+        <a href="#display">Choose your display</a>
+        <a href="#framing">Frame your image</a>
+      </div>
+      <div class="grp">
+        <h6>Make it great</h6>
+        <a href="#preview">Live desktop preview</a>
+        <a href="#readability">Readability adjustments</a>
+        <a href="#quality">Quality &amp; resolution</a>
+      </div>
+      <div class="grp">
+        <h6>Use it</h6>
+        <a href="#wallpaper">Set as wallpaper</a>
+        <a href="#export">Export</a>
+      </div>
+      <div class="grp">
+        <h6>Wideframe Pro</h6>
+        <a href="#library">Library &amp; Collections</a>
+        <a href="#spanning">Multi-monitor spanning</a>
+        <a href="#schedule">Schedule &amp; shuffle</a>
+      </div>
+      <div class="grp">
+        <h6>Reference</h6>
+        <a href="#shortcuts">Keyboard shortcuts</a>
+        <a href="#privacy">Privacy &amp; files</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="docs-main prose" style="padding-top:0">
+
+      <section class="doc-sec" id="install">
+        <h2>Install &amp; first run</h2>
+        <p class="lead">Wideframe is a native macOS app. Requires macOS 13 Ventura or later, on Apple Silicon or Intel.</p>
+        <ol class="steps">
+          <li>Download Wideframe from the <b>Mac App Store</b> and open it. No account or sign-in — the full editor is ready immediately.</li>
+          <li>On first launch, Wideframe asks <b>what display you own</b> so it can target real pixels from the start. You can change this any time.</li>
+          <li>Drag an image onto the window — or press <kbd>⌘O</kbd> — and you're framing.</li>
+        </ol>
+        <div class="callout"><p><b>Everything is local.</b> Wideframe never uploads your images. Opening a file only reads it from where you chose; see <a class="lnk" href="#privacy">Privacy &amp; files</a>.</p></div>
+      </section>
+
+      <section class="doc-sec" id="display">
+        <h2>Choose your display</h2>
+        <p class="lead">Wideframe targets a real resolution, not an abstract ratio. Tell it what you own once and it remembers.</p>
+        <p>Open the <b>display menu</b> in the top bar and pick your monitor. Built-in presets cover everything from a 1080p or 1440p 16:9 panel and 4K displays to MacBook screens, the 34″ UltraWide (3440×1440), 5K2K (5120×2160), the Samsung Odyssey G9 49″ (5120×1440), and common dual- and triple-monitor spans.</p>
+        <h3>Adding a display</h3>
+        <p>Not listed? Choose <b>Add a display…</b> and enter the width and height, or let Wideframe detect connected monitors. Any resolution works — ultrawide, standard, or anything in between. Every crop, warning, and export then targets that exact pixel size, so guidance reads "great on your display" instead of "below 5120×1440."</p>
+      </section>
+
+      <section class="doc-sec" id="framing">
+        <h2>Frame your image</h2>
+        <p class="lead">Fitting a wide image should feel like a photographer's loupe, not a spreadsheet field.</p>
+        <h3>Manual framing</h3>
+        <ul>
+          <li><b>Pan</b> — drag the image inside the frame.</li>
+          <li><b>Zoom</b> — pinch on a trackpad, scroll, or use <kbd>+</kbd> / <kbd>−</kbd>.</li>
+          <li><b>Nudge</b> — arrow keys move the framed area one pixel at a time for precise alignment.</li>
+        </ul>
+        <p>Rule-of-thirds and horizon guides appear while you adjust, so you compose with intent.</p>
+        <h3>Auto-framing</h3>
+        <p>Click <b>Auto-frame</b> (or press <kbd>A</kbd>) and Wideframe finds the horizon or main subject and proposes the best slice for your display. <b>Snap to it</b> to accept, or keep adjusting — auto-framing is a suggestion, never a lock.</p>
+      </section>
+
+      <section class="doc-sec" id="preview">
+        <h2>Live desktop preview</h2>
+        <p class="lead">A number readout can't tell you whether a wallpaper actually works. The preview shows you.</p>
+        <p>Toggle the <b>Desktop Preview</b> to drop your framed wallpaper behind a scale mock of your monitor — menu bar, dock, and a few icons. Flip between <b>light and dark</b> mode to judge both. What you see is exactly what lands on your desktop when you set it.</p>
+      </section>
+
+      <section class="doc-sec" id="readability">
+        <h2>Readability adjustments</h2>
+        <p class="lead">Wallpapers compete with icons and text. These keep a busy image calm — without wrecking it.</p>
+        <p>Each adjustment is optional, non-destructive, has a single slider, and is <b>off by default</b>:</p>
+        <ul>
+          <li><b>Auto-darken</b> — gently lowers overall brightness so light text and icons stay legible.</li>
+          <li><b>Edge vignette</b> — softly darkens the corners to settle a busy frame.</li>
+          <li><b>Dock scrim</b> — a soft gradient under the dock so labels don't fight the image.</li>
+          <li><b>Desaturate</b> — eases saturation a touch for a more restful desktop.</li>
+        </ul>
+      </section>
+
+      <section class="doc-sec" id="quality">
+        <h2>Quality &amp; resolution</h2>
+        <p class="lead">Guidance that teaches instead of scolds — so you never ship a blurry wallpaper by accident.</p>
+        <p>Wideframe shows a <b>quality score</b> and the <b>exact output resolution</b> for your current frame and display. If your source is narrower than your display's pixel width, scaling up softens it — Wideframe tells you plainly: "3840 wide — a touch soft for your 5120 display, but fine if it's mostly sky."</p>
+        <p>To raise quality: pick a higher-resolution source or frame a tighter slice. Wideframe always shows the exact output width versus your target, so there are no surprises.</p>
+      </section>
+
+      <section class="doc-sec" id="wallpaper">
+        <h2>Set as wallpaper</h2>
+        <p class="lead">One click, per display, without leaving the app.</p>
+        <p>Press <b>Set as Wallpaper</b> and Wideframe applies the result to the display you've selected in the top bar. On a multi-monitor setup, choose each display and set it individually, or use <a class="lnk" href="#spanning">spanning</a> (Pro) to stretch one image across the whole rig.</p>
+      </section>
+
+      <section class="doc-sec" id="export">
+        <h2>Export</h2>
+        <p class="lead">Save a file sized exactly for your display.</p>
+        <p>Choose <b>Export</b> (<kbd>⌘E</kbd>) to write a PNG or JPEG at your target resolution. By default exports land in <code>~/Pictures/Wideframe</code>, named by resolution; pick any folder at export time. In the free version, every image Wideframe produces — exports and wallpapers you set — carries a small corner watermark; <b>Wideframe Pro</b> removes it everywhere.</p>
+      </section>
+
+      <section class="doc-sec" id="library">
+        <h2>Library &amp; Collections <span class="pro-pill">Pro</span></h2>
+        <p class="lead">Stop treating each image as disposable.</p>
+        <p>The library keeps your sources and outputs together: <b>favorite</b> the keepers, group them into <b>collections</b>, and re-open any wallpaper to tweak its non-destructive edit. Add <b>tags</b> — including <b>Finder tags</b> written to the filesystem — so your wallpapers stay organized everywhere, not just inside Wideframe.</p>
+      </section>
+
+      <section class="doc-sec" id="spanning">
+        <h2>Multi-monitor spanning <span class="pro-pill">Pro</span></h2>
+        <p class="lead">One image across the whole rig, bezel-aware.</p>
+        <p>Arrange your displays — set their order, relative size, and which is primary — and Wideframe stretches a single image across all of them, <b>compensating for the bezels</b> so the picture lines up across the gaps. Each monitor still gets a file at its exact resolution.</p>
+      </section>
+
+      <section class="doc-sec" id="schedule">
+        <h2>Schedule &amp; shuffle <span class="pro-pill">Pro</span></h2>
+        <p class="lead">Keep your desktop feeling new.</p>
+        <p>Turn a collection into a rotating wallpaper: <b>shuffle</b> through it, <b>schedule</b> changes on a timer, and optionally match the OS <b>light/dark</b> mode so the right image shows at the right time of day.</p>
+      </section>
+
+      <section class="doc-sec" id="shortcuts">
+        <h2>Keyboard shortcuts</h2>
+        <p class="lead">Wideframe is built to be driven from the keyboard.</p>
+        <div class="kbd-grid">
+          <div class="kr"><kbd>⌘O</kbd> Open an image</div>
+          <div class="kr"><kbd>A</kbd> Auto-frame</div>
+          <div class="kr"><kbd>+</kbd> / <kbd>−</kbd> Zoom in / out</div>
+          <div class="kr"><kbd>← ↑ → ↓</kbd> Nudge frame</div>
+          <div class="kr"><kbd>⌘E</kbd> Export</div>
+          <div class="kr"><kbd>⌘⇧W</kbd> Set as wallpaper</div>
+          <div class="kr"><kbd>⌘Z</kbd> Undo</div>
+          <div class="kr"><kbd>P</kbd> Toggle desktop preview</div>
+        </div>
+      </section>
+
+      <section class="doc-sec" id="privacy">
+        <h2>Privacy &amp; files</h2>
+        <p class="lead">Wideframe runs entirely on your Mac.</p>
+        <p>There are no accounts, no analytics, and no tracking. Opening an image only reads the file you pick; all framing and scaling happen on-device; exports go where you choose. <b>Nothing — images, files, or any personal data — is ever uploaded.</b> Wideframe requests Files/Photos access solely to open images you select and save exports you ask for — manageable in <b>System Settings → Privacy &amp; Security</b>. Full details on the <a class="lnk" href="privacy.html">Privacy Policy</a>.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><span class="brand"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></span>
+        <p class="tag">The fastest way to make any image look like it was made for your display — and put it on your desktop in one click.</p></div>
+      <div><h5>Product</h5><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="docs.html">Documentation</a></li><li><a href="support.html">Support</a></li><li><a href="mailto:support@wideframe.studio">support@wideframe.studio</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="mailto:contact@wideframe.studio">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 Wideframe</span><span>·</span><span>Made for macOS. Nothing ever leaves your Mac.</span><span class="sp">wideframe.studio</span></div>
+  </div>
+</footer>
+
+<script>
+  // scrollspy: highlight the sidebar link for the section in view
+  const links = [...document.querySelectorAll('.docs-side a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('on'));
+        const a = map.get(e.target.id);
+        if (a) a.classList.add('on');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+  document.querySelectorAll('.doc-sec').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

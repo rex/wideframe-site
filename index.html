@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wideframe — Wallpapers made for any display</title>
+<meta name="description" content="Wideframe frames any image to your exact display and sets it as your wallpaper in one click. Made for every Mac — ultrawide, multi-monitor, 4K, 16:9, or laptop." />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* ── Hero (dark stage) ───────────────────────────────────────────────── */
+  .hero { position: relative; overflow: hidden; background: var(--wf-canvas);
+    background-image: var(--wf-gradient-glow); color: var(--wf-on-canvas); padding-bottom: 0; }
+  .hero-inner { text-align: center; padding: 40px 0 8px; position: relative; z-index: 2; }
+  .kick { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700;
+    color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+  .kick .star { color: #FFC56F; }
+  .hero h1 { font-family: var(--wf-font-display); font-size: 72px; line-height: .99; font-weight: 800;
+    letter-spacing: -.035em; margin: 26px auto 0; max-width: 900px; }
+  .hero h1 .g { background: linear-gradient(100deg, #7AA7FF, #9A6BFF 55%, #C77DFF);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero .sub { font-size: 19px; color: var(--wf-on-canvas-muted); margin: 26px auto 0; max-width: 600px; line-height: 1.55; }
+  .hero-cta { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 32px; }
+  .hero-trust { margin-top: 20px; font-size: 13.5px; color: rgba(244,246,251,.55); }
+  .hero-trust b { color: rgba(244,246,251,.85); }
+
+  .hero-stage { position: relative; z-index: 2; margin-top: 56px; }
+  .win.ultrawide .win-body { height: 360px; }
+  .win.ultrawide .win-canvas { display: flex; }
+
+  /* ── Feature grid ────────────────────────────────────────────────────── */
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+  .fcard { background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: var(--wf-radius-lg);
+    padding: 26px; box-shadow: var(--wf-shadow-sm); transition: transform .2s, box-shadow .2s; }
+  .fcard:hover { transform: translateY(-3px); box-shadow: var(--wf-shadow-md); }
+  .fcard .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--wf-brand-tint);
+    color: var(--wf-blue); display: grid; place-items: center; margin-bottom: 18px; }
+  .fcard .ic svg { width: 22px; height: 22px; }
+  .fcard h3 { font-family: var(--wf-font-display); font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+  .fcard p { font-size: 14.5px; color: var(--wf-ink-muted); margin-top: 9px; line-height: 1.55; }
+
+  /* ── Desktop showcase ────────────────────────────────────────────────── */
+  .showcase { background: var(--wf-surface-2); border-top: 1px solid var(--wf-line); border-bottom: 1px solid var(--wf-line); }
+  .show-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: center; }
+  .desktop { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/10;
+    box-shadow: var(--wf-shadow-lg), 0 0 0 1px rgba(20,26,46,.1); background:#000; }
+  .desktop .dwall { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .menubar { position: absolute; top: 0; left: 0; right: 0; height: 26px; display: flex; align-items: center;
+    gap: 16px; padding: 0 14px; background: rgba(8,10,16,.3); backdrop-filter: blur(8px); }
+  .menubar .ap { width: 12px; height: 12px; }
+  .menubar .mi { font-size: 11px; font-weight: 600; color: #fff; } .menubar .mi.b7 { font-weight: 800; }
+  .menubar .clock { margin-left: auto; font-size: 11px; font-weight: 600; color: #fff; }
+  .dock { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; gap: 9px;
+    padding: 7px 11px; border-radius: 17px; background: rgba(255,255,255,.16); backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.2); }
+  .dock span { width: 38px; height: 38px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,.3); }
+  .dock img { width: 38px; height: 38px; border-radius: 10px; }
+  .pv-tag { position: absolute; left: 16px; top: 38px; display: inline-flex; align-items: center; gap: 7px;
+    font-size: 11.5px; font-weight: 700; color: #fff; background: rgba(44,91,255,.92); padding: 6px 12px;
+    border-radius: 999px; box-shadow: 0 6px 18px rgba(44,91,255,.4); }
+  .pv-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: #6FE0B0; }
+  .show-list { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .show-list li { display: flex; gap: 12px; font-size: 15px; color: var(--wf-ink-muted); }
+  .show-list .ck { color: var(--wf-blue); flex: none; margin-top: 2px; }
+  .show-list b { color: var(--wf-ink); }
+
+  /* ── Pricing teaser ──────────────────────────────────────────────────── */
+  .price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .pcard { border-radius: var(--wf-radius-lg); padding: 32px; border: 1px solid var(--wf-line); background: var(--wf-surface); }
+  .pcard.pro { background: var(--wf-canvas); color: #fff; border-color: transparent; position: relative; overflow: hidden; }
+  .pcard.pro::before { content:""; position:absolute; inset:0; background: var(--wf-gradient-glow); }
+  .pcard .pt { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--wf-ink-subtle); position: relative; }
+  .pcard.pro .pt { color: #9FB4FF; }
+  .pcard .pp { font-family: var(--wf-font-display); font-size: 40px; font-weight: 800; letter-spacing: -.02em; margin-top: 10px; position: relative; }
+  .pcard .pp small { font-size: 15px; font-weight: 600; color: var(--wf-ink-subtle); }
+  .pcard.pro .pp small { color: rgba(244,246,251,.6); }
+  .pcard ul { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 11px; position: relative; }
+  .pcard li { display: flex; gap: 10px; font-size: 14.5px; color: var(--wf-ink-muted); }
+  .pcard.pro li { color: rgba(244,246,251,.82); }
+  .pcard li .ck { color: var(--wf-blue); flex: none; } .pcard.pro li .ck { color: #9FB4FF; }
+  .pcard .pbtn { margin-top: 24px; position: relative; width: 100%; }
+
+  /* ── Final CTA band ──────────────────────────────────────────────────── */
+  .cta-band { background: var(--wf-gradient); color: #fff; text-align: center; overflow: hidden; position: relative; }
+  .cta-band h2 { font-family: var(--wf-font-display); font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
+  .cta-band p { font-size: 18px; color: rgba(255,255,255,.86); margin-top: 16px; }
+  .cta-band .btn { background: #fff; color: var(--wf-ink); margin-top: 28px; box-shadow: 0 14px 40px rgba(0,0,0,.22); }
+  .cta-band .btn:hover { transform: translateY(-1px); }
+  .cta-band .fine { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,.7); }
+
+  /* ── Multi-monitor span showcase (dark stage) ───────────────────────── */
+  .span-show { background: var(--wf-canvas); background-image: var(--wf-gradient-glow); color: var(--wf-on-canvas);
+    overflow: hidden;
+    --wall: radial-gradient(42% 80% at 50% 96%, rgba(255,221,180,.95), rgba(255,150,95,.55) 24%, rgba(214,99,63,0) 58%),
+            linear-gradient(180deg, #221a4a 0%, #3a2566 30%, #7a3a78 55%, #c25a52 77%, #f4ad5e 100%); }
+  .span-show .eyebrow { color: #9FB4FF; }
+  .span-show h2 { color: #fff; }
+  .pro-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--wf-gradient);
+    padding: 4px 11px; border-radius: 999px; vertical-align: middle; margin-left: 10px; }
+  .span-sub { font-size: 18px; color: var(--wf-on-canvas-muted); margin: 18px auto 0; max-width: 600px; line-height: 1.55; }
+
+  .rig-wrap { margin-top: 8px; position: relative; }
+  .span-pill { display: inline-flex; align-items: center; gap: 8px; margin: 0 auto; font-family: var(--wf-font-mono);
+    font-size: 12.5px; font-weight: 600; color: #fff; background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14); padding: 7px 14px; border-radius: 999px; }
+  .span-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #6FE0B0; }
+
+  .rig-stage { width: 936px; max-width: 100%; margin: 26px auto 0; min-height: 326px;
+    display: flex; gap: 18px; align-items: flex-end; justify-content: center; }
+  .mon { display: flex; flex-direction: column; align-items: center; }
+  .screen { position: relative; border: 3px solid #11151f; border-radius: 8px; overflow: hidden;
+    background-repeat: no-repeat; background-color: #05070d;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), 0 16px 40px rgba(0,0,0,.55); }
+  .stand { width: 56px; height: 9px; margin: 9px auto 0; border-radius: 0 0 4px 4px; background: #161c2b; position: relative; }
+  .stand::before { content: ""; position: absolute; left: 50%; top: -8px; transform: translateX(-50%);
+    width: 16px; height: 8px; background: #161c2b; }
+  .reslabel { text-align: center; margin-top: 12px; font-family: var(--wf-font-mono); font-size: 11px; color: rgba(244,246,251,.5); }
+  .reslabel.prim b { color: #9FB4FF; }
+  .quad-grid { display: grid; }
+  .prim-tag { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; color: #fff; background: rgba(44,91,255,.85);
+    padding: 3px 9px; border-radius: 999px; z-index: 2; white-space: nowrap; }
+
+  .span-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 920px; margin: 64px auto 0; }
+  .span-feat { text-align: center; }
+  .span-feat .ic { width: 46px; height: 46px; border-radius: 13px; margin: 0 auto 14px; display: grid; place-items: center;
+    background: rgba(255,255,255,.06); color: #9FB4FF; } .span-feat .ic svg { width: 22px; height: 22px; }
+  .span-feat h4 { font-size: 16.5px; font-weight: 700; color: #fff; }
+  .span-feat p { font-size: 14px; color: var(--wf-on-canvas-muted); margin-top: 8px; line-height: 1.55; }
+
+  .arr-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 52px auto 0; }
+  .arr { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px;
+    padding: 22px 24px 20px; width: 232px; cursor: pointer; text-align: left;
+    transition: border-color .18s, background .18s, transform .18s; position: relative; }
+  .arr:hover { background: rgba(255,255,255,.07); transform: translateY(-2px); }
+  .arr.active { border-color: rgba(122,167,255,.8); background: rgba(44,91,255,.12);
+    box-shadow: 0 0 0 1px rgba(122,167,255,.5), 0 12px 30px rgba(0,0,0,.3); }
+  .arr.active::after { content: ""; position: absolute; top: 14px; right: 14px; width: 16px; height: 16px;
+    border-radius: 50%; background: #2C5BFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/10px no-repeat; }
+  .arr .glyph { height: 66px; display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 16px; }
+  .arr .scr { background-size: cover; background-position: center; border: 1.5px solid #2a3346; border-radius: 3px; }
+  .arr .col { display: flex; flex-direction: column; gap: 5px; }
+  .arr h4 { font-size: 14.5px; font-weight: 700; color: #fff; }
+  .arr p { font-size: 12.5px; color: var(--wf-on-canvas-muted); margin-top: 5px; line-height: 1.45; }
+
+  @media (max-width: 980px) {
+    .span-feats { grid-template-columns: 1fr; gap: 22px; }
+  }
+  @media (max-width: 900px) {
+    .hero h1 { font-size: 46px; }
+    .feat-grid { grid-template-columns: 1fr; }
+    .show-grid, .price-row { grid-template-columns: 1fr; }
+    .win.ultrawide .insp { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero on-dark">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="index.html"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></a>
+      <span class="links">
+        <a href="index.html" class="on">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="support.html">Support</a>
+      </span>
+      <span class="right">
+        <a class="btn grad" href="#download"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download</a>
+      </span>
+    </nav>
+  </div>
+
+  <div class="wrap hero-inner">
+    <span class="kick"><span class="star">★</span> Stop stretching. Stop guessing.</span>
+    <h1>Your ultrawide deserves better than a <span class="g">stretched photo.</span></h1>
+    <p class="sub">Wideframe is a focused little studio for desktop wallpapers — drop in any image, frame the perfect slice for your exact display, and set it in one click. Ultrawide, 5K, a 16:9 monitor, a laptop, a vertical second screen — if it's a display, Wideframe fits it. No black bars. No guesswork.</p>
+    <div class="hero-cta">
+      <a class="btn grad lg" href="#download"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download on the Mac App Store</a>
+      <a class="btn ghost lg" href="#tour">Watch the 40-second tour</a>
+    </div>
+    <div class="hero-trust">Free to use · <b>Wideframe Pro</b> $14.99 once, yours forever · macOS 13+</div>
+  </div>
+
+  <div class="wrap hero-stage">
+    <div class="win ultrawide">
+      <div class="win-bar">
+        <span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+        <span class="win-title"><img src="../assets/wideframe-mark.svg" alt=""><span class="w">Wideframe</span><span class="t">STUDIO</span></span>
+        <span class="win-tools">
+          <i data-lucide="images"></i><i data-lucide="palette"></i><i data-lucide="settings"></i>
+        </span>
+      </div>
+      <div class="win-body">
+        <div class="win-canvas">
+          <img class="cv" src="../ui_kits/wideframe-macos/samples/alps-dusk.png" alt="A wallpaper being framed in Wideframe Studio" style="object-position:center 78%">
+          <div class="cropbox">
+            <span class="third t1"></span><span class="third t2"></span>
+            <span class="horizon"></span>
+            <span class="handle tl"></span><span class="handle tr"></span><span class="handle bl"></span><span class="handle br"></span>
+          </div>
+          <span class="frame-pill"><span class="dot"></span>Framed for 5120 × 1440 · 32:9</span>
+        </div>
+        <div class="insp">
+          <div class="cap">Quality</div>
+          <div class="q">94<span class="qx">Excellent for your G9</span></div>
+          <div class="qbar"><i></i></div>
+          <div class="sep"></div>
+          <div class="cap">Your display</div>
+          <div class="row"><span class="k">Preset</span><span class="v">Odyssey G9</span></div>
+          <div class="row"><span class="k">Target</span><span class="v">5120×1440</span></div>
+          <div class="row"><span class="k">Aspect</span><span class="v">32:9</span></div>
+          <div class="row"><span class="k">Source</span><span class="v">6016w</span></div>
+          <div class="go">Set as Wallpaper</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ MULTI-MONITOR SPAN ════════════════ -->
+<section class="span-show sec-pad on-dark">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Multi-monitor spanning<span class="pro-tag">Pro</span></span>
+      <h2>One photo. <span style="background:linear-gradient(100deg,#7AA7FF,#9A6BFF 55%,#C77DFF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Your whole rig.</span></h2>
+      <p class="span-sub">A single image, stretched across every display — and Wideframe compensates for the bezels, so the picture lines up across the gaps. Anything from one screen to a wall of them.</p>
+    </div>
+
+    <div class="rig-wrap">
+      <div style="text-align:center"><span class="span-pill"><span class="dot"></span><span id="rigPill">One image · spanning 7680 × 1440</span></span></div>
+      <div class="rig-stage" id="rigStage"></div>
+    </div>
+
+    <div class="span-feats">
+      <div class="span-feat">
+        <div class="ic"><i data-lucide="frame"></i></div>
+        <h4>Bezel-aware</h4>
+        <p>The picture lines up across the gaps — Wideframe hides exactly the strip each bezel covers, so nothing skips or repeats.</p>
+      </div>
+      <div class="span-feat">
+        <div class="ic"><i data-lucide="check-check"></i></div>
+        <h4>Native per display</h4>
+        <p>Each screen still gets a file at its own exact resolution — no stretching, no soft pixels on the wide one.</p>
+      </div>
+      <div class="span-feat">
+        <div class="ic"><i data-lucide="layout-dashboard"></i></div>
+        <h4>Any arrangement</h4>
+        <p>Mixed sizes, mixed resolutions, even a vertical monitor in the mix. Arrange them once and Wideframe maps the image to match.</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:13px;color:rgba(244,246,251,.5);margin:48px auto 0">Tap an arrangement to preview it above ↑</p>
+    <div class="arr-row">
+      <button class="arr active" data-arr="triple" aria-pressed="true">
+        <div class="glyph">
+          <span class="scr" style="width:38px;height:22px;background-image:url(assets/galaxy.jpg);background-size:300% auto;background-position:0% 50%"></span>
+          <span class="scr" style="width:38px;height:22px;background-image:url(assets/galaxy.jpg);background-size:300% auto;background-position:50% 50%"></span>
+          <span class="scr" style="width:38px;height:22px;background-image:url(assets/galaxy.jpg);background-size:300% auto;background-position:100% 50%"></span>
+        </div>
+        <h4>Triple landscape</h4>
+        <p>Three wide displays, one continuous sweep.</p>
+      </button>
+      <button class="arr" data-arr="uwport" aria-pressed="false">
+        <div class="glyph">
+          <span class="scr" style="width:62px;height:20px;background-image:linear-gradient(90deg,#2a1d5c,#5a2f86,#b14d72,#e98a52,#f4ad5e);background-size:126% 100%;background-position:0% center"></span>
+          <span class="scr" style="width:17px;height:42px;background-image:linear-gradient(90deg,#2a1d5c,#5a2f86,#b14d72,#e98a52,#f4ad5e);background-size:465% 100%;background-position:100% center"></span>
+        </div>
+        <h4>Ultrawide + portrait</h4>
+        <p>A 49″ super-ultrawide beside a rotated panel.</p>
+      </button>
+      <button class="arr" data-arr="quad" aria-pressed="false">
+        <div class="glyph">
+          <div class="col">
+            <span class="scr" style="width:30px;height:17px;background-image:url(assets/earth.jpg);background-size:200% 200%;background-position:0% 0%"></span>
+            <span class="scr" style="width:30px;height:17px;background-image:url(assets/earth.jpg);background-size:200% 200%;background-position:0% 100%"></span>
+          </div>
+          <div class="col">
+            <span class="scr" style="width:30px;height:17px;background-image:url(assets/earth.jpg);background-size:200% 200%;background-position:100% 0%"></span>
+            <span class="scr" style="width:30px;height:17px;background-image:url(assets/earth.jpg);background-size:200% 200%;background-position:100% 100%"></span>
+          </div>
+        </div>
+        <h4>Quad wall</h4>
+        <p>A 2×2 grid, framed as one big scene.</p>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FEATURES ════════════════ -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Seven ideas, one little studio</span>
+      <h2>Make any photo look like it was <span class="g">shot for your monitor.</span></h2>
+      <p>Wideframe knows the difference between a ratio and a real display. Everything it does — every crop, warning and export — targets the monitor you actually own, ultrawide or not.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="fcard">
+        <div class="ic"><i data-lucide="monitor"></i></div>
+        <h3>Know your display, not just a ratio</h3>
+        <p>Real presets for whatever you run — a 4K 16:9, a MacBook screen, an ultrawide G9, 5K2K, dual &amp; triple spans. Every crop targets real pixels, so guidance reads "great on your display," not "below 5120×1440."</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><i data-lucide="crop"></i></div>
+        <h3>Frame it smart</h3>
+        <p>Pan, zoom and nudge with rule-of-thirds and horizon guides — or let auto-framing find the horizon and propose the best slice. Snap to it, or take over.</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><i data-lucide="eye"></i></div>
+        <h3>See it on your desktop</h3>
+        <p>A live preview drops your wallpaper behind a real menu bar, dock and icons — light or dark — so you judge the result in context before you export.</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><i data-lucide="sliders-horizontal"></i></div>
+        <h3>Make it livable</h3>
+        <p>Subtle, optional readability tweaks — auto-darken, edge vignette, a soft scrim under the dock — so a busy image still reads as a calm desktop.</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><i data-lucide="gauge"></i></div>
+        <h3>Honest about pixels</h3>
+        <p>Quality guidance that teaches instead of scolds. See the exact output resolution and never ship a blurry wallpaper by accident.</p>
+      </div>
+      <div class="fcard">
+        <div class="ic"><i data-lucide="refresh-cw"></i></div>
+        <h3>Set it, keep it fresh</h3>
+        <p>One-click Set as Wallpaper, per display. Then shuffle, schedule and rotate a whole collection on a timer, matched to light or dark mode.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SHOWCASE ════════════════ -->
+<section class="showcase sec-pad" id="tour">
+  <div class="wrap">
+    <div class="show-grid">
+      <div>
+        <span class="eyebrow">The live desktop preview</span>
+        <h2 style="font-family:var(--wf-font-display);font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-top:14px;">See it before you commit.</h2>
+        <p style="font-size:17px;color:var(--wf-ink-muted);margin-top:16px;line-height:1.55;">A number readout can't tell you whether a wallpaper actually <i>works</i>. So Wideframe shows you — behind your menu bar, your dock, your icons, in the mode you use.</p>
+        <ul class="show-list">
+          <li><span class="ck"><i data-lucide="check"></i></span><span><b>Real chrome.</b> Menu bar, dock and a few icons, scaled to your display.</span></li>
+          <li><span class="ck"><i data-lucide="check"></i></span><span><b>Light &amp; dark.</b> Flip the mode and judge both in a click.</span></li>
+          <li><span class="ck"><i data-lucide="check"></i></span><span><b>No surprises.</b> What you preview is exactly what lands on your desktop.</span></li>
+        </ul>
+      </div>
+      <div class="desktop">
+        <img class="dwall" src="../ui_kits/wideframe-macos/samples/neon-valley.png" alt="A Wideframe wallpaper on a macOS desktop" style="object-position:center 42%">
+        <div class="menubar">
+          <svg class="ap" viewBox="0 0 384 512" fill="#fff"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>
+          <span class="mi b7">Wideframe</span><span class="mi">File</span><span class="mi">Edit</span><span class="mi">Display</span>
+          <span class="clock">Mon 9:41</span>
+        </div>
+        <span class="pv-tag"><span class="dot"></span>Live preview · your G9</span>
+        <div class="dock">
+          <span style="background:linear-gradient(160deg,#8FB0FF,#4C78F0)"></span>
+          <span style="background:linear-gradient(160deg,#6FD8B0,#36A98A)"></span>
+          <span style="background:linear-gradient(160deg,#FFC56F,#F0902E)"></span>
+          <img src="../assets/wideframe-app-icon.png" alt="Wideframe">
+          <span style="background:linear-gradient(160deg,#FF9AA8,#E8453C)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ PRICING TEASER ════════════════ -->
+<section class="sec-pad" id="download">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Simple, honest pricing</span>
+      <h2>Free to use. <span class="g">$14.99 to own it all.</span></h2>
+      <p>The full studio is free — no account, no nag. Pro is a one-time purchase. No subscription, ever. Family Sharing included.</p>
+    </div>
+
+    <div class="price-row">
+      <div class="pcard">
+        <div class="pt">Free</div>
+        <div class="pp">$0 <small>forever</small></div>
+        <ul>
+          <li><span class="ck"><i data-lucide="check"></i></span>The complete editor — pan, zoom &amp; nudge</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Smart auto-framing</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Every display preset</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Live desktop preview &amp; Set as Wallpaper</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>A small Wideframe watermark on what you make</li>
+        </ul>
+        <a class="btn ghost pbtn" href="#download">Download free</a>
+      </div>
+      <div class="pcard pro">
+        <div class="pt">Wideframe Pro · $14.99 once</div>
+        <div class="pp">$14.99 <small>one time</small></div>
+        <ul>
+          <li><span class="ck"><i data-lucide="check"></i></span>Watermark-free exports</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Library &amp; Collections, with tags</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Multi-monitor spanning, bezel-aware</li>
+          <li><span class="ck"><i data-lucide="check"></i></span>Schedule &amp; shuffle collections</li>
+        </ul>
+        <a class="btn grad pbtn" href="#"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Get Wideframe on the App Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA BAND ════════════════ -->
+<section class="cta-band sec-pad">
+  <div class="wrap-narrow">
+    <h2>Your desktop deserves better.</h2>
+    <p>Make five wallpapers when you came to make one.</p>
+    <a class="btn lg" href="#"><svg class="apple" viewBox="0 0 384 512" style="width:18px;height:18px;fill:currentColor"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download on the Mac App Store</a>
+    <div class="fine">Free · Wideframe Pro $14.99 once · macOS 13 Ventura or later · Apple Silicon &amp; Intel</div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <span class="brand"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></span>
+        <p class="tag">The fastest way to make any image look like it was made for your display — and put it on your desktop in one click.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="mailto:support@wideframe.studio">support@wideframe.studio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="mailto:contact@wideframe.studio">Contact</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 Wideframe</span>
+      <span>·</span>
+      <span>Made for macOS. Nothing ever leaves your Mac.</span>
+      <span class="sp">wideframe.studio</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.9 } });
+
+  /* ── Multi-monitor arrangement switcher ──────────────────────────────── */
+  (function () {
+    const GAL = 'assets/galaxy.jpg', ERTH = 'assets/earth.jpg';
+    const WALLH = 'linear-gradient(90deg,#2a1d5c,#5a2f86,#b14d72,#e98a52,#f4ad5e)';
+    const stage = document.getElementById('rigStage');
+    const pillEl = document.getElementById('rigPill');
+    if (!stage) return;
+
+    function scr(w, h, bg, extra) {
+      return '<div class="screen" style="width:' + w + 'px;height:' + h + 'px;' + (extra || '') +
+             'background-image:' + bg + '">' + '</div>';
+    }
+
+    const arrangements = {
+      // Galaxy (16:9) spanning three landscape monitors — center band keeps the disc.
+      triple() {
+        const W = 296, H = 167;
+        let html = '';
+        [0, 1, 2].forEach(function (i) {
+          const prim = i === 1;
+          html += '<div class="mon">' +
+            '<div class="screen" style="width:' + W + 'px;height:' + H + 'px;background-image:url(' + GAL + ');' +
+              'background-size:300% auto;background-position:' + (i * 50) + '% 50%">' +
+              (prim ? '<span class="prim-tag">Primary</span>' : '') + '</div>' +
+            '<div class="stand"></div>' +
+            '<div class="reslabel' + (prim ? ' prim' : '') + '">' + (prim ? '<b>2560 × 1440</b>' : '2560 × 1440') + '</div>' +
+          '</div>';
+        });
+        stage.className = 'rig-stage';
+        stage.innerHTML = html;
+        return 'One image · spanning 7680 × 1440';
+      },
+      // One image across a 49" ultrawide + a rotated portrait panel (horizontal wash, seam-perfect).
+      uwport() {
+        const UW = 590, UH = 166, PW = 150, PH = 266, total = UW + PW;
+        const uSize = (total / UW * 100).toFixed(1), pSize = (total / PW * 100).toFixed(1);
+        stage.className = 'rig-stage';
+        stage.innerHTML =
+          '<div class="mon">' +
+            '<div class="screen" style="width:' + UW + 'px;height:' + UH + 'px;background-image:' + WALLH + ';' +
+              'background-size:' + uSize + '% 100%;background-position:0% center"><span class="prim-tag">Primary</span></div>' +
+            '<div class="stand"></div><div class="reslabel prim"><b>5120 × 1440</b></div>' +
+          '</div>' +
+          '<div class="mon">' +
+            '<div class="screen" style="width:' + PW + 'px;height:' + PH + 'px;background-image:' + WALLH + ';' +
+              'background-size:' + pSize + '% 100%;background-position:100% center"></div>' +
+            '<div class="stand"></div><div class="reslabel">1440 × 2560</div>' +
+          '</div>';
+        return 'One image · 5120×1440  +  1440×2560 portrait';
+      },
+      // Earth (3:2) spanning a 2×2 video wall — exact quadrants, thin bezels hide their strip.
+      quad() {
+        const CW = 286, CH = 191, GAP = 7;
+        const cells = [[0, 0], [100, 0], [0, 100], [100, 100]];
+        let g = '<div class="quad-grid" style="grid-template-columns:repeat(2,' + CW + 'px);' +
+                'grid-template-rows:repeat(2,' + CH + 'px);gap:' + GAP + 'px">';
+        cells.forEach(function (c) {
+          g += '<div class="screen" style="width:' + CW + 'px;height:' + CH + 'px;border-radius:6px;' +
+               'background-image:url(' + ERTH + ');background-size:200% 200%;background-position:' + c[0] + '% ' + c[1] + '%">' +
+               (c[0] === 0 && c[1] === 0 ? '<span class="prim-tag">Primary</span>' : '') + '</div>';
+        });
+        g += '</div>';
+        stage.className = 'rig-stage is-quad';
+        stage.innerHTML = '<div class="mon"><div style="position:relative">' + g + '</div>' +
+          '<div class="reslabel">4 × 2560 × 1440  ·  one 5120 × 2880 scene</div></div>';
+        return 'One image · spanning a 5120 × 2880 wall';
+      }
+    };
+
+    function select(key) {
+      const pill = arrangements[key]();
+      if (pillEl) pillEl.textContent = pill;
+      document.querySelectorAll('.arr').forEach(function (b) {
+        const on = b.dataset.arr === key;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    document.querySelectorAll('.arr').forEach(function (b) {
+      b.addEventListener('click', function () { select(b.dataset.arr); });
+    });
+
+    select('triple');
+  })();
+</script>
+</body>
+</html>

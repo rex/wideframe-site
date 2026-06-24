@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wideframe — Changelog</title>
+<meta name="description" content="What's new in Wideframe. Release notes and what's coming next." />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  .log { padding: 56px 0 96px; }
+  .rel { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 36px 0; border-top: 1px solid var(--wf-line); }
+  .rel:first-child { border-top: none; }
+  .rel .meta { position: sticky; top: 24px; align-self: start; }
+  .rel .ver { font-family: var(--wf-font-display); font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+  .rel .date { font-family: var(--wf-font-mono); font-size: 12.5px; color: var(--wf-ink-subtle); margin-top: 4px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    padding: 4px 10px; border-radius: 999px; margin-top: 12px; }
+  .badge.launch { color: #fff; background: var(--wf-gradient); }
+  .badge.soon { color: var(--wf-blue); background: var(--wf-brand-tint); }
+  .rel h3 { font-size: 18px; font-weight: 700; margin: 4px 0 14px; }
+  .rel h3:not(:first-child) { margin-top: 26px; }
+  .clist { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .clist li { display: flex; gap: 12px; font-size: 15.5px; color: var(--wf-ink-muted); line-height: 1.55; }
+  .clist .tag { flex: none; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+    padding: 3px 8px; border-radius: 6px; margin-top: 2px; height: fit-content; }
+  .tag.new { color: var(--wf-success); background: var(--wf-success-bg); }
+  .tag.imp { color: var(--wf-blue); background: var(--wf-brand-tint); }
+  .tag.pro { color: #8A4FD8; background: rgba(154,48,234,.1); }
+  .clist b { color: var(--wf-ink); }
+  .rel.next .clist li { color: var(--wf-ink-subtle); }
+  @media (max-width:900px){ .rel{ grid-template-columns:1fr; gap:14px; } .rel .meta{ position:static; } }
+</style>
+</head>
+<body>
+
+<div class="page-head on-dark">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="index.html"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></a>
+      <span class="links"><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="changelog.html" class="on">Changelog</a><a href="support.html">Support</a></span>
+      <span class="right"><a class="btn grad" href="index.html#download"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download</a></span>
+    </nav>
+  </div>
+  <div class="wrap"><div class="ph-inner">
+    <span class="eyebrow" style="color:#9FB4FF">Changelog</span>
+    <h1>What's <span class="g">new.</span></h1>
+    <p>Every release, in plain language. Here's where Wideframe is — and where it's headed.</p>
+  </div></div>
+</div>
+
+<section class="log">
+  <div class="wrap-narrow">
+
+    <div class="rel">
+      <div class="meta">
+        <div class="ver">1.0</div>
+        <div class="date">June 24, 2026</div>
+        <span class="badge launch">Launch</span>
+      </div>
+      <div>
+        <p style="font-size:16px;color:var(--wf-ink-muted);line-height:1.6;margin-bottom:18px">The first public release. Wideframe is reborn as a focused little studio for desktop wallpapers — built around the display you actually own, whatever its size or shape.</p>
+        <h3>Highlights</h3>
+        <ul class="clist">
+          <li><span class="tag new">New</span><span><b>Know your display.</b> Real presets for whatever you run — a 16:9 or 4K monitor, a MacBook, the 34″ UltraWide, 5K2K, the Samsung Odyssey G9, and dual/triple-monitor spans — every crop targets a real resolution.</span></li>
+          <li><span class="tag new">New</span><span><b>Smart framing.</b> Pan, zoom and nudge with rule-of-thirds and horizon guides, plus auto-framing that finds the horizon and proposes the best slice.</span></li>
+          <li><span class="tag new">New</span><span><b>Live desktop preview.</b> Judge your wallpaper behind a real menu bar, dock and icons — light or dark — before you export.</span></li>
+          <li><span class="tag new">New</span><span><b>Readability adjustments.</b> Optional auto-darken, edge vignette and a soft scrim under the dock. Non-destructive, off by default.</span></li>
+          <li><span class="tag new">New</span><span><b>Honest quality guidance.</b> See the exact output resolution and get a friendly heads-up before you ship anything soft.</span></li>
+          <li><span class="tag new">New</span><span><b>One-click Set as Wallpaper</b>, per display, without leaving the app.</span></li>
+          <li><span class="tag pro">Pro</span><span><b>Wideframe Pro</b> ($14.99 once): watermark-free output, Library &amp; Collections with tags, multi-monitor spanning, and schedule &amp; shuffle.</span></li>
+        </ul>
+        <h3>Under the hood</h3>
+        <ul class="clist">
+          <li><span class="tag imp">Design</span><span>An all-new <b>Aurora</b> identity — light, optimistic chrome around a dark stage where your image is the star.</span></li>
+          <li><span class="tag imp">Privacy</span><span>Everything runs on-device. No accounts, no analytics, no tracking.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rel next">
+      <div class="meta">
+        <div class="ver">Next</div>
+        <div class="date">on the roadmap</div>
+        <span class="badge soon">Coming soon</span>
+      </div>
+      <div>
+        <p style="font-size:16px;color:var(--wf-ink-muted);line-height:1.6;margin-bottom:18px">A peek at what we're working on. Plans, not promises — we'll move things around based on what you tell us.</p>
+        <ul class="clist">
+          <li><span class="tag imp">1.5</span><span>A proper <b>batch grid</b> — drop a folder, review, and export the keepers in one pass.</span></li>
+          <li><span class="tag imp">1.5</span><span>Deeper <b>library &amp; collections</b> with re-openable, non-destructive edits.</span></li>
+          <li><span class="tag imp">2.0</span><span><b>Source discovery</b> — point Wideframe at your photos and let it find the wallpaper-grade ones for your rig.</span></li>
+          <li><span class="tag imp">2.0</span><span>Smarter <b>scheduling &amp; sync</b> across your Macs.</span></li>
+        </ul>
+        <div class="callout" style="margin-top:24px"><p>Got a feature you're dying for? <a class="lnk" href="mailto:contact@wideframe.studio">Tell us</a> — the wishlist genuinely shapes the roadmap.</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><span class="brand"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></span>
+        <p class="tag">The fastest way to make any image look like it was made for your display — and put it on your desktop in one click.</p></div>
+      <div><h5>Product</h5><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="docs.html">Documentation</a></li><li><a href="support.html">Support</a></li><li><a href="mailto:support@wideframe.studio">support@wideframe.studio</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="mailto:contact@wideframe.studio">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 Wideframe</span><span>·</span><span>Made for macOS. Nothing ever leaves your Mac.</span><span class="sp">wideframe.studio</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

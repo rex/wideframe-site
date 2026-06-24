@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wideframe — Support</title>
+<meta name="description" content="Get help with Wideframe. Documentation, troubleshooting, and a real human at support@wideframe.studio." />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
+  .hcard { background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: var(--wf-radius-lg);
+    padding: 26px; box-shadow: var(--wf-shadow-sm); display: flex; flex-direction: column; }
+  .hcard .ic { width: 42px; height: 42px; border-radius: 11px; background: var(--wf-brand-tint); color: var(--wf-blue);
+    display: grid; place-items: center; margin-bottom: 16px; } .hcard .ic svg { width: 21px; height: 21px; }
+  .hcard h3 { font-size: 17px; font-weight: 700; } .hcard p { font-size: 14px; color: var(--wf-ink-muted); margin-top: 8px; line-height: 1.55; flex: 1; }
+  .hcard a.lnk { color: var(--wf-blue); font-weight: 600; font-size: 14px; margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; }
+  .contact-band { background: var(--wf-surface-2); border: 1px solid var(--wf-line); border-radius: var(--wf-radius-lg);
+    padding: 32px; display: flex; gap: 28px; align-items: center; margin-top: 24px; }
+  .contact-band .big { flex: 1; }
+  .contact-band h3 { font-family: var(--wf-font-display); font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+  .contact-band p { font-size: 15px; color: var(--wf-ink-muted); margin-top: 8px; }
+  @media (max-width: 900px){ .help-grid{ grid-template-columns:1fr; } .contact-band{ flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+
+<div class="page-head on-dark center">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="index.html"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></a>
+      <span class="links"><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="changelog.html">Changelog</a><a href="support.html" class="on">Support</a></span>
+      <span class="right"><a class="btn grad" href="index.html#download"><svg class="apple" viewBox="0 0 384 512"><path d="M318.7 268c-.2-37 16.6-64.9 50.6-85.5-19-27.2-47.7-42.2-85.6-45.1-36-2.8-75.4 21-89.7 21-15.2 0-50.1-20-77.5-20C61.2 138.9 0 184.5 0 277.6c0 27.5 5 55.9 15.1 85.2 13.4 38.5 61.8 132.9 112.3 131.4 26.4-.6 45-18.7 79.4-18.7 33.3 0 50.6 18.7 77.5 18.7 50.9-.7 94.7-86.5 107.5-125.1-68.3-32.2-72.6-94.4-72.6-96.5zM256.7 90.5c29.6-35.1 26.9-67.1 26-78.5-26.1 1.5-56.3 17.8-73.5 37.8-19 21.5-30.2 48.1-27.8 77.4 28.2 2.2 53.9-12.3 75.3-36.7z"/></svg>Download</a></span>
+    </nav>
+  </div>
+  <div class="wrap"><div class="ph-inner">
+    <span class="eyebrow" style="color:#9FB4FF">Support</span>
+    <h1>How can we <span class="g">help?</span></h1>
+    <p>Most answers live in the docs. For anything else, a real person reads every message at support@wideframe.studio.</p>
+  </div></div>
+</div>
+
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="help-grid">
+      <div class="hcard">
+        <div class="ic"><i data-lucide="book-open"></i></div>
+        <h3>Read the docs</h3>
+        <p>Step-by-step guides for displays, framing, the live preview, the library, exporting, and every Pro feature.</p>
+        <a class="lnk" href="docs.html">Open documentation <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+      </div>
+      <div class="hcard">
+        <div class="ic"><i data-lucide="wrench"></i></div>
+        <h3>Troubleshooting</h3>
+        <p>Wallpaper not setting? Export looks soft? Pro didn't unlock after purchase? Start with the common fixes below.</p>
+        <a class="lnk" href="#fixes">Common fixes <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+      </div>
+      <div class="hcard">
+        <div class="ic"><i data-lucide="mail"></i></div>
+        <h3>Email us</h3>
+        <p>Stuck on something the docs don't cover? Send the details and we'll get you sorted — usually within one business day.</p>
+        <a class="lnk" href="mailto:support@wideframe.studio">support@wideframe.studio <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" style="padding-top:0" id="fixes">
+  <div class="wrap-narrow">
+    <div class="sec-head" style="margin-bottom:24px"><h2 style="font-size:30px">Common fixes</h2></div>
+    <div class="faq">
+      <details open><summary>Wideframe Pro didn't unlock after I paid<span class="pm">+</span></summary>
+        <div class="ans">Open Wideframe and choose <b>Restore Purchases</b> (in Settings, or on any Pro paywall). This re-validates your receipt with the App Store and unlocks Pro on the spot. Make sure you're signed in with the same Apple ID you purchased with. Still stuck? Email us your purchase date and we'll help.</div></details>
+      <details><summary>"Set as Wallpaper" isn't changing my desktop<span class="pm">+</span></summary>
+        <div class="ans">Confirm the correct display is selected in the top bar — on a multi-monitor setup, Wideframe sets the wallpaper for the display you've chosen. If macOS is mid-update or a Focus filter is active, try again, or set the exported file manually from <b>System Settings → Wallpaper</b>.</div></details>
+      <details><summary>My export looks soft on my display<span class="pm">+</span></summary>
+        <div class="ans">Wideframe shows a quality score for a reason: if your source image is narrower than your display's pixel width, scaling it up will soften it. Pick a higher-resolution source, or frame a tighter slice. The quality readout always tells you the exact output width versus your target, so you'll know before you set it.</div></details>
+      <details><summary>My display isn't in the preset list<span class="pm">+</span></summary>
+        <div class="ans">Choose <b>Add a display…</b> from the display menu and enter the resolution, or let Wideframe detect connected displays. Any width or height works — ultrawide or standard 16:9, big or small — presets are just shortcuts.</div></details>
+      <details><summary>Where do my exported wallpapers go?<span class="pm">+</span></summary>
+        <div class="ans">By default, <code>~/Pictures/Wideframe</code>, named by resolution. You can choose a different folder at export time.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec-pad" style="padding-top:0">
+  <div class="wrap-narrow">
+    <div class="contact-band">
+      <div class="big">
+        <h3>Still need a hand?</h3>
+        <p>Tell us your macOS version, your display, and what you were trying to do. Screenshots help. We read everything.</p>
+      </div>
+      <a class="btn grad lg" href="mailto:support@wideframe.studio"><i data-lucide="mail" style="width:17px;height:17px"></i>Email support</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><span class="brand"><img class="lockup" src="../assets/wideframe-lockup-white.svg" alt="Wideframe"></span>
+        <p class="tag">The fastest way to make any image look like it was made for your display — and put it on your desktop in one click.</p></div>
+      <div><h5>Product</h5><ul><li><a href="index.html">Home</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="changelog.html">Changelog</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="docs.html">Documentation</a></li><li><a href="support.html">Support</a></li><li><a href="mailto:support@wideframe.studio">support@wideframe.studio</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="mailto:contact@wideframe.studio">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 Wideframe</span><span>·</span><span>Made for macOS. Nothing ever leaves your Mac.</span><span class="sp">wideframe.studio</span></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.9 } });</script>
+</body>
+</html>
