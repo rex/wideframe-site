@@ -1,0 +1,201 @@
+/* ============================================================================
+   WIDEFRAME — Colors & Type  ·  "Aurora"
+   ----------------------------------------------------------------------------
+   A bright, optimistic, premium-consumer identity built around the new logo:
+   a curved ultrawide frame cradling layered mountains, washed in an electric
+   blue→violet gradient.
+
+   The system runs on two stages:
+     · LIGHT CHROME  — the app shell & marketing. Airy, paper-white, ink text.
+     · DARK CANVAS   — the editor stage where wallpapers live and pop.
+   The blue→violet gradient is the through-line that unifies both.
+
+   FONT NOTE: the macOS app ships Apple system fonts. For web we substitute the
+   nearest matches to the logo's geometry from Google Fonts:
+     · Plus Jakarta Sans → display / UI  (geometric, friendly, double-story 'a')
+     · JetBrains Mono    → data / pixels  (precise, technical)
+   Swap these out if true brand fonts are provided.
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Overpass:wght@600;700;800;900&display=swap');
+
+:root {
+  /* ─── BRAND ─────────────────────────────────────────────────────────────
+     The logo gradient, decomposed. Blue is the workhorse interactive color;
+     the full gradient is the hero / brand signature. */
+  --wf-blue:      #2C5BFF;   /* primary interactive: links, focus, selection  */
+  --wf-blue-700:  #1E3FCC;   /* pressed / deep                                */
+  --wf-blue-300:  #6E8CFF;   /* hover / light                                 */
+  --wf-indigo:    #5A41F2;   /* gradient midpoint                             */
+  --wf-violet:    #9A30EA;   /* gradient terminus                             */
+  --wf-brand-tint:  rgba(44, 91, 255, 0.10);   /* soft blue fill              */
+  --wf-violet-tint: rgba(154, 48, 234, 0.10);
+
+  --wf-gradient:      linear-gradient(100deg, #2C5BFF 0%, #5A41F2 52%, #9A30EA 100%); /* @kind color */
+  --wf-gradient-rev:  linear-gradient(100deg, #9A30EA 0%, #5A41F2 48%, #2C5BFF 100%); /* @kind color */
+  --wf-gradient-soft: linear-gradient(100deg, rgba(44,91,255,0.12), rgba(154,48,234,0.12)); /* @kind color */
+  --wf-gradient-glow: radial-gradient(120% 140% at 50% 0%, rgba(90,65,242,0.22) 0%, rgba(44,91,255,0.10) 40%, transparent 70%); /* @kind color */
+
+  /* Mountain / illustration palette (decorative, from the mark) */
+  --wf-peak-1: #7FA2F2;
+  --wf-peak-2: #4E72E6;
+  --wf-peak-3: #2A2A8C;
+
+  /* ─── LIGHT CHROME — neutrals ───────────────────────────────────────────
+     Cool paper whites with a faint blue undertone, so the chrome feels of a
+     piece with the brand rather than clinically grey. */
+  --wf-paper:       #FBFBFD;   /* app background                              */
+  --wf-surface:     #FFFFFF;   /* cards, panels, popovers                     */
+  --wf-surface-2:   #F4F5F9;   /* insets, hovered rows, tracks                */
+  --wf-surface-3:   #EAECF3;   /* pressed, selected wash                      */
+  --wf-line:        rgba(20, 26, 46, 0.09);   /* hairline borders             */
+  --wf-line-strong: rgba(20, 26, 46, 0.16);
+
+  /* Ink — text on light */
+  --wf-ink:        #141A2E;    /* primary (matches the wordmark)              */
+  --wf-ink-muted:  #565E78;    /* secondary, labels                          */
+  --wf-ink-subtle: #8A92A8;    /* tertiary, placeholders                     */
+  --wf-ink-ghost:  #B9BFD0;    /* faintest, disabled                         */
+
+  /* ─── DARK CANVAS — the editor stage ────────────────────────────────────
+     Deep ink-navy where the user's imagery is the star. */
+  --wf-canvas:      #0C1018;
+  --wf-canvas-2:    #141A26;   /* raised panels over canvas                   */
+  --wf-canvas-3:    #1E2533;   /* controls on canvas                          */
+  --wf-canvas-line: rgba(255, 255, 255, 0.10);
+  --wf-on-canvas:        #F4F6FB;
+  --wf-on-canvas-muted:  rgba(244, 246, 251, 0.60);
+  --wf-on-canvas-subtle: rgba(244, 246, 251, 0.38);
+
+  /* ─── SEMANTIC ──────────────────────────────────────────────────────────*/
+  --wf-success:    #12B886;
+  --wf-success-bg: rgba(18, 184, 134, 0.12);
+  --wf-warning:    #F08C2E;   /* "below 5120×1440" guidance                   */
+  --wf-warning-bg: rgba(240, 140, 46, 0.12);
+  --wf-danger:     #E8453C;
+  --wf-danger-bg:  rgba(232, 69, 60, 0.12);
+  --wf-info:       var(--wf-blue);
+
+  /* ─── TYPOGRAPHY ────────────────────────────────────────────────────────*/
+  --wf-font-display: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --wf-font-ui:      'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --wf-font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, 'Menlo', monospace;
+  /* Brand wordmark — "WIDEFRAME" set in Overpass Bold, uppercase, lightly tracked.
+     Use ONLY for the logo lockup, never for UI or body copy. */
+  --wf-font-wordmark: 'Overpass', var(--wf-font-display);
+  --wf-wordmark-tracking: 0.045em;
+
+  --wf-text-hero:    34px;
+  --wf-text-title:   24px;
+  --wf-text-section: 16px;
+  --wf-text-card:    15px;
+  --wf-text-body:    14px;
+  --wf-text-small:   13px;
+  --wf-text-micro:   11px;
+  --wf-text-data:    13px;
+
+  --wf-weight-regular: 400;
+  --wf-weight-medium:  500;
+  --wf-weight-semi:    600;
+  --wf-weight-bold:    700;
+  --wf-weight-x:       800;
+
+  --wf-leading-tight: 1.12;
+  --wf-leading-snug:  1.35;
+  --wf-leading-body:  1.55;
+  --wf-tracking-eyebrow: 0.13em;
+  --wf-tracking-tight:  -0.02em;
+
+  /* ─── SPACING — 4px base ────────────────────────────────────────────────*/
+  --wf-space-1: 4px;  --wf-space-2: 8px;  --wf-space-3: 12px; --wf-space-4: 16px;
+  --wf-space-5: 20px; --wf-space-6: 24px; --wf-space-8: 32px; --wf-space-10: 40px;
+  --wf-space-12: 48px;
+
+  /* ─── RADII — friendlier & rounder than v1 ──────────────────────────────*/
+  --wf-radius-xs:  6px;
+  --wf-radius-sm:  10px;
+  --wf-radius-md:  14px;
+  --wf-radius-lg:  18px;
+  --wf-radius-xl:  24px;
+  --wf-radius-pill: 999px;
+
+  /* ─── ELEVATION — soft, true-to-light shadows + brand glow ──────────────*/
+  --wf-shadow-sm: 0 1px 2px rgba(20,26,46,0.06), 0 1px 3px rgba(20,26,46,0.07);
+  --wf-shadow-md: 0 4px 12px rgba(20,26,46,0.07), 0 2px 6px rgba(20,26,46,0.05);
+  --wf-shadow-lg: 0 24px 60px rgba(20,26,46,0.16), 0 8px 24px rgba(20,26,46,0.08);
+  --wf-shadow-brand: 0 8px 22px rgba(44,91,255,0.32);
+  --wf-ring: 0 0 0 3px rgba(44,91,255,0.20);
+
+  /* ─── MOTION ────────────────────────────────────────────────────────────*/
+  --wf-ease:     cubic-bezier(0.2, 0.8, 0.2, 1); /* @kind other */
+  --wf-ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --wf-dur-fast: 120ms; /* @kind other */ --wf-dur-base: 190ms; /* @kind other */ --wf-dur-slow: 300ms; /* @kind other */
+
+
+  /* ════════════════════════════════════════════════════════════════════════
+     LEGACY ALIASES — keep the original (v1 "Cinematic Dusk") macOS UI kit
+     rendering on-brand under the new palette. Prefer the Aurora tokens above
+     for all new work; these will be removed once the kit is rebuilt as Studio.
+     ════════════════════════════════════════════════════════════════════════ */
+  --wf-fg: var(--wf-on-canvas);
+  --wf-fg-muted: var(--wf-on-canvas-muted);
+  --wf-fg-subtle: var(--wf-on-canvas-subtle);
+  --wf-fg-ghost: rgba(244,246,251,0.22);
+  --wf-surface-1: #11151F;
+  --wf-surface-4: #2B3447;
+  --wf-frame: var(--wf-blue);
+  --wf-frame-bright: var(--wf-blue-300);
+  --wf-frame-deep: var(--wf-blue-700);
+  --wf-frame-ghost: var(--wf-brand-tint);
+  --wf-line-frame: rgba(44,91,255,0.45);
+  --wf-solar: #6E8CFF; --wf-coral: #5A41F2; --wf-blush: #9A30EA; --wf-dusk: #5A41F2;
+  --wf-horizon: var(--wf-gradient);
+  --wf-horizon-soft: var(--wf-gradient);
+  --wf-horizon-glow: var(--wf-gradient-glow);
+  --wf-glow-frame: 0 0 0 1px rgba(44,91,255,0.5), 0 6px 24px rgba(44,91,255,0.28);
+  --wf-glow-sunset: var(--wf-shadow-brand);
+  --wf-shadow-inset: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ============================================================================
+   SEMANTIC TYPE CLASSES  (default to ink; use *.on-canvas inside dark stages)
+   ============================================================================ */
+.wf-hero {
+  font-family: var(--wf-font-display); font-size: var(--wf-text-hero);
+  font-weight: var(--wf-weight-x); line-height: var(--wf-leading-tight);
+  letter-spacing: var(--wf-tracking-tight); color: var(--wf-ink);
+}
+.wf-title {
+  font-family: var(--wf-font-display); font-size: var(--wf-text-title);
+  font-weight: var(--wf-weight-bold); line-height: var(--wf-leading-tight);
+  letter-spacing: var(--wf-tracking-tight); color: var(--wf-ink);
+}
+.wf-section {
+  font-family: var(--wf-font-ui); font-size: var(--wf-text-section);
+  font-weight: var(--wf-weight-semi); line-height: var(--wf-leading-snug); color: var(--wf-ink);
+}
+.wf-card-title {
+  font-family: var(--wf-font-ui); font-size: var(--wf-text-card);
+  font-weight: var(--wf-weight-semi); color: var(--wf-ink);
+}
+.wf-body {
+  font-family: var(--wf-font-ui); font-size: var(--wf-text-body);
+  font-weight: var(--wf-weight-regular); line-height: var(--wf-leading-body); color: var(--wf-ink-muted);
+}
+.wf-label {
+  font-family: var(--wf-font-ui); font-size: var(--wf-text-small);
+  font-weight: var(--wf-weight-medium); color: var(--wf-ink-muted);
+}
+.wf-eyebrow {
+  font-family: var(--wf-font-ui); font-size: var(--wf-text-micro);
+  font-weight: var(--wf-weight-bold); text-transform: uppercase;
+  letter-spacing: var(--wf-tracking-eyebrow); color: var(--wf-ink-subtle);
+}
+.wf-data {
+  font-family: var(--wf-font-mono); font-size: var(--wf-text-data);
+  font-weight: var(--wf-weight-medium); font-feature-settings: 'tnum' 1; color: var(--wf-ink);
+}
+.wf-gradient-text {
+  background: var(--wf-gradient); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}

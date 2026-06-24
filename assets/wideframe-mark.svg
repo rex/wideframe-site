@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="46 41 144 76" width="144" height="76" role="img" aria-label="Wideframe mark">
+  <defs>
+    <linearGradient id="wfStroke" x1="20" y1="46" x2="216" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C5BFF"></stop>
+      <stop offset="0.52" stop-color="#5A41F2"></stop>
+      <stop offset="1" stop-color="#9A30EA"></stop>
+    </linearGradient>
+    <linearGradient id="wfPeakBack" x1="118" y1="74" x2="168" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4A57DA"></stop>
+      <stop offset="1" stop-color="#2A2A8C"></stop>
+    </linearGradient>
+    <linearGradient id="wfPeakFront" x1="58" y1="84" x2="108" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7FA2F2"></stop>
+      <stop offset="1" stop-color="#4E72E6"></stop>
+    </linearGradient>
+    <clipPath id="wfInner">
+      <path d="M57,47 Q118,57 179,47 Q185,79 183,111 Q118,101 53,111 Q51,79 57,47 Z"></path>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#wfInner)">
+    <path d="M100,112 L146,78 L192,112 Z" fill="url(#wfPeakBack)"></path>
+    <path d="M46,112 L92,86 L138,112 Z" fill="url(#wfPeakFront)"></path>
+  </g>
+
+  <path d="M57,47 Q118,57 179,47 Q185,79 183,111 Q118,101 53,111 Q51,79 57,47 Z" fill="none" stroke="url(#wfStroke)" stroke-width="10.5" stroke-linejoin="round" stroke-linecap="round"></path>
+</svg>
