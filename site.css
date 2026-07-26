@@ -24,7 +24,13 @@ img { display: block; max-width: 100%; }
 .btn.ghost { background: var(--wf-surface); color: var(--wf-ink); border-color: var(--wf-line-strong); }
 .btn.ghost:hover { border-color: var(--wf-ink-subtle); }
 .btn.lg { font-size: 15.5px; padding: 14px 26px; }
-.btn .apple { width: 17px; height: 17px; fill: currentColor; flex: none; }
+/* Official Apple "Download on the Mac App Store" badge — unmodified per
+   Apple's marketing guidelines, sized by height only. */
+.mas-badge { display: inline-flex; align-items: center; transition: transform .18s; }
+.mas-badge:hover { transform: translateY(-1px); }
+.mas-badge img { display: block; width: auto; height: 40px; }
+.mas-badge.sm img { height: 30px; }
+.mas-badge.lg img { height: 48px; }
 /* on dark stages */
 .on-dark .btn.ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.18); }
 .on-dark .btn.ghost:hover { background: rgba(255,255,255,.14); }
