@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Wideframe — Privacy Policy</title>
-<meta name="description" content="Wideframe runs entirely on your Mac. No accounts, no analytics, no tracking. Nothing — no images, no data, no personal information — ever leaves your device." />
+<meta name="description" content="Wideframe frames your images entirely on your Mac — they never leave your device. No accounts, no third-party analytics, no ads, no tracking. The app sends anonymous usage signals you can switch off in Settings." />
 <link rel="stylesheet" href="colors_and_type.css" />
 <link rel="stylesheet" href="site.css" />
 </head>
@@ -22,18 +22,51 @@
   </div>
   <div class="wrap"><div class="ph-inner">
     <span class="eyebrow" style="color:#9FB4FF">Privacy Policy</span>
-    <h1>Nothing ever <span class="g">leaves your Mac.</span></h1>
-    <p>Wideframe runs entirely on your device. No accounts, no analytics, no tracking, no personal information — not your images, not your files, not a single byte about you. There's nothing to upload, because there's nowhere for it to go.</p>
-    <div class="ph-meta">Effective June 1, 2026 · applies to Wideframe for macOS</div>
+    <h1>Your images never <span class="g">leave your Mac.</span></h1>
+    <p>Framing, previewing, editing and exporting all happen on your device — we never see your pictures, your file names, or your folders. Wideframe does send an anonymous record of how the app itself is running, so we can find errors and see which features people actually use. No accounts, no ads, no third-party analytics, nothing sold. Every field is listed below, and there's an off switch in Settings.</p>
+    <div class="ph-meta">Effective August 5, 2026 · applies to Wideframe for macOS</div>
   </div></div>
 </div>
 
 <section class="prose">
   <div class="wrap-narrow">
-    <div class="callout"><p><b>The short version:</b> We don't collect anything. Wideframe does everything — framing, previewing, editing, exporting, setting a wallpaper — locally on your Mac. No servers are ever involved, and <b>nothing leaves your computer</b>: not your images, not your files, not your settings, not any personal information. Apple's "Data Not Collected" label applies.</p></div>
+    <div class="callout"><p><b>The short version:</b> All the work happens locally — framing, previewing, editing, exporting, setting a wallpaper — and <b>your images, file names and folders never leave your computer</b>. What Wideframe does send is a small, anonymous record of how the app itself ran: how long a session lasted, roughly what kind of display rig you have, which features you used, and a code when something goes wrong. Section 1 lists every field. No accounts, no ads, no third-party analytics, nothing sold — and an off switch in <b>Settings</b>.</p></div>
 
-    <h2>1. Information we collect</h2>
-    <p><b>None — nothing at all.</b> Wideframe does not collect, store, or transmit any information: no personal data, no images, no file contents, no file names or paths, no device identifiers, and no usage or diagnostic data. There are no user accounts, no sign-in, no profiles, and no analytics or crash-reporting SDKs in the app.</p>
+    <h2>1. Usage signals</h2>
+    <p>Wideframe sends an anonymous record of how the app runs to our own server at <code>marks.wideframe.studio</code>. We use it for two things: finding errors, and understanding how the app is really used so we know what to work on. Signals are <b>on by default</b> — the app tells you so on screen the first time it sends any, and you can switch them off at any time in <b>Settings</b> (section 5 has the details).</p>
+    <p>This is the whole list. Nothing outside this table is sent.</p>
+
+    <table class="ptable">
+      <thead>
+        <tr>
+          <th>What's sent</th>
+          <th>Exactly what it contains</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="feat"><b>Install ID</b></td><td class="feat">A random identifier the app creates the first time you run it. It is <b>not</b> derived from your hardware and is never linked to your identity. It doesn't expire on its own, and turning signals off destroys it — turn them back on and you get a brand-new one, with nothing tying it to the old.</td></tr>
+        <tr><td class="feat"><b>Session ID</b></td><td class="feat">A separate random identifier covering a single launch of the app.</td></tr>
+        <tr><td class="feat"><b>Session</b></td><td class="feat">When it started, how many seconds it was active (rounded to the nearest 30), whether the app exited cleanly, and counts of images opened, exports written, and wallpapers applied.</td></tr>
+        <tr><td class="feat"><b>Display rig</b></td><td class="feat">How many monitors you have, and a coarse layout string like <code>3840x2160@2+3840x2160@2P</code>. Whether spanning is on. Bezel gap and DPI as buckets, not exact values. Whether any display is HDR.</td></tr>
+        <tr><td class="feat"><b>Product</b></td><td class="feat">Which feature put a paywall in front of you, the outcome of a purchase or a restore, and whether you used auto-framing, the frame chooser, or the span toggle.</td></tr>
+        <tr><td class="feat"><b>Errors</b></td><td class="feat">An error domain plus a code from a fixed list — <b>never</b> the message text.</td></tr>
+        <tr><td class="feat"><b>Build</b></td><td class="feat">The app's version, its release channel, and your macOS version.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>What we never collect</h3>
+    <p>None of this is ever sent:</p>
+    <ul>
+      <li>Your images, or anything derived from them — no thumbnails, no colors, no crops, no analysis.</li>
+      <li>File paths, file names, or what's in your folders.</li>
+      <li>Display serial numbers or model names.</li>
+      <li>Your IP address. It isn't stored.</li>
+      <li>Your name, your email, or any account — there are no accounts.</li>
+      <li>Advertising identifiers of any kind.</li>
+    </ul>
+
+    <h3>How long we keep it</h3>
+    <p>Signals are kept for <b>13 months</b>, then deleted. They go to our server and nowhere else: no third party receives them, and we don't sell them — not now, not ever.</p>
 
     <h2>2. Your images and files</h2>
     <p>When you open an image, Wideframe reads it from the location you choose, in order to frame and preview it. All processing — cropping, scaling, auto-framing, and readability adjustments — happens <b>on your Mac</b>. Your images, and everything about them, are never uploaded to us or any third party.</p>
@@ -44,15 +77,19 @@
 
     <h2>3. Purchases</h2>
     <p>Wideframe Pro is a one-time in-app purchase processed entirely by <b>Apple</b> through the App Store. We never see your payment details. Apple validates the purchase and provides the receipt the app uses to unlock Pro features. Apple's handling of your transaction is governed by the <a class="lnk" href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+    <p>Whether a purchase or a restore succeeded is one of the signals in section 1. Your payment details, your receipt, and your Apple Account are not.</p>
 
     <h2>4. Analytics &amp; tracking</h2>
-    <p>There are none. Wideframe contains no advertising identifiers, no third-party trackers, and no telemetry. We do not build a profile of you, and we have nothing to sell or share because we collect nothing.</p>
+    <p>There is no third-party analytics in Wideframe: no analytics SDK, no crash-reporting SDK, no advertising identifiers, no ad networks, and no trackers of any kind. Nothing follows you across other apps or across the web. We don't build a profile of you, and your data has never been sold or shared with anyone — it never will be.</p>
+    <p>What the app does send is its own usage signals: first-party, anonymous, listed field by field in section 1, and delivered only to our server at <code>marks.wideframe.studio</code>.</p>
 
     <h2>5. Network use</h2>
-    <p>Core features work fully offline, and the app makes no network connections of its own. If a future version adds an optional online capability, it will be clearly described, opt-in, used only for that single purpose, and never tied to your identity. We will update this policy before any such feature ships.</p>
+    <p>Everything that makes a wallpaper works fully offline — opening, framing, previewing, adjusting, exporting, and setting your desktop. The app makes one network connection of its own, and only one: sending the signals in section 1 to <code>marks.wideframe.studio</code>. Purchases travel over Apple's StoreKit, which is Apple's connection, not ours.</p>
+    <p>Signals are <b>on by default</b>. The first time you run a version that sends them, Wideframe tells you so in the app, so you hear it there and not only here. To stop them, open <b>Wideframe → Settings</b> and turn <b>usage signals</b> off. That does two things: the app stops sending, and the install ID on your Mac is destroyed. If you ever switch signals back on, a new random install ID is created and there is no way to connect it to the old one.</p>
+    <p>An earlier version of this policy promised that any future online capability would be opt-in. We chose differently — on by default, with a notice in the app and the switch above. We'd rather change the sentence and say so than leave a promise up that the app no longer keeps.</p>
 
     <h2>6. Children's privacy</h2>
-    <p>Wideframe is rated 4+ and contains no objectionable content, but it is a creative tool intended for general audiences. Because we collect no personal information, we collect none from children either.</p>
+    <p>Wideframe is rated 4+ and contains no objectionable content, but it is a creative tool intended for general audiences. The signals in section 1 carry no personal information about anyone, so there is none to collect from children either.</p>
 
     <h2>7. Changes to this policy</h2>
     <p>If we change how Wideframe handles data, we'll update this page and revise the effective date above. Material changes will also be noted in the app's release notes.</p>
@@ -71,7 +108,7 @@
       <div><h5>Resources</h5><ul><li><a href="/docs">Documentation</a></li><li><a href="/support">Support</a></li><li><a href="mailto:support@wideframe.studio">support@wideframe.studio</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="mailto:contact@wideframe.studio">Contact</a></li><li><a href="/privacy">Privacy Policy</a></li></ul></div>
     </div>
-    <div class="base"><span>© 2026 Wideframe</span><span>·</span><span>Made for macOS. Nothing ever leaves your Mac.</span><span class="sp">wideframe.studio</span></div>
+    <div class="base"><span>© 2026 Wideframe</span><span>·</span><span>Made for macOS. Your images never leave your Mac.</span><span class="sp">wideframe.studio</span></div>
   </div>
 </footer>
 
