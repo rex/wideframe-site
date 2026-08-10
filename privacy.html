@@ -47,10 +47,11 @@
         <tr><td class="feat"><b>Install ID</b></td><td class="feat">A random identifier the app creates the first time you run it. It is <b>not</b> derived from your hardware and is never linked to your identity. It doesn't expire on its own, and turning signals off destroys it — turn them back on and you get a brand-new one, with nothing tying it to the old.</td></tr>
         <tr><td class="feat"><b>Session ID</b></td><td class="feat">A separate random identifier covering a single launch of the app.</td></tr>
         <tr><td class="feat"><b>Session</b></td><td class="feat">When it started, how many seconds it was active (rounded to the nearest 30), whether the app exited cleanly, and counts of images opened, exports written, and wallpapers applied.</td></tr>
-        <tr><td class="feat"><b>Display rig</b></td><td class="feat">How many monitors you have, and a coarse layout string like <code>3840x2160@2+3840x2160@2P</code>. Whether spanning is on. Bezel gap and DPI as buckets, not exact values. Whether any display is HDR.</td></tr>
-        <tr><td class="feat"><b>Product</b></td><td class="feat">Which feature put a paywall in front of you, the outcome of a purchase or a restore, and whether you used auto-framing, the frame chooser, or the span toggle.</td></tr>
+        <tr><td class="feat"><b>Display rig</b></td><td class="feat">How many monitors you have, a coarse layout string like <code>3840x2160@2+3840x2160@2P</code>, and counts of built-in, external, and mirrored displays. Whether spanning is on. Bezel gap and an ordered per-display PPI bucket are sent as broad ranges, never exact values. Whether any display is HDR.</td></tr>
+        <tr><td class="feat"><b>Product use</b></td><td class="feat">Which feature put a paywall in front of you, the outcome of a purchase or restore, and use of auto-framing, the frame chooser, span, Library, collections, tags, queue, preview surfaces, display workspace, settings, and appearance theme. Names you give collections or tags, searches, and every click/keystroke are never sent.</td></tr>
+        <tr><td class="feat"><b>Output quality &amp; timing</b></td><td class="feat">Coarse quality grades and broad time ranges for image analysis, framing, export, and wallpaper application—enough to find a slow or soft result, never image contents, raw measurements, or crop coordinates.</td></tr>
         <tr><td class="feat"><b>Errors</b></td><td class="feat">An error domain plus a code from a fixed list — <b>never</b> the message text.</td></tr>
-        <tr><td class="feat"><b>Build</b></td><td class="feat">The app's version, its release channel, and your macOS version.</td></tr>
+        <tr><td class="feat"><b>Build &amp; language</b></td><td class="feat">The app version and official build number, its release channel, your macOS major version, and the app language/region setting.</td></tr>
       </tbody>
     </table>
 
